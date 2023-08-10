@@ -47,5 +47,5 @@ public static class BD{
             }
 
             return BD.Query<Preguntas>(sql, parametros).ToList();  
-        }
+    }   }
 }
