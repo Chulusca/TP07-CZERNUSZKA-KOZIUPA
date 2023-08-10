@@ -34,16 +34,6 @@ public static class Juego
         _respuestas = BD.ObtenerRespuestas(_preguntas);
     }
 
-    private static void ObtenerPreguntas(int dificultad, int categoria)
-    {
-        
-    }
-
-    private static void ObtenerRespuestas()
-    {
-        
-    }
-
     public static Preguntas ObtenerProximaPregunta()
     {
 
