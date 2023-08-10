@@ -8,8 +8,8 @@ public static class Juego
     private static string _username;
     private static int _puntajeActual;
     private static int _cantidadPreguntasCorrectas;
-    private static List<Pregunta> _preguntas;
-    private static List<Respuesta> _respuestas;
+    private static List<Preguntas> _preguntas;
+    private static List<Respuestas> _respuestas;
 
     public static void InicializarJuego()
     {
@@ -20,18 +20,18 @@ public static class Juego
 
     public static List<string> ObtenerCategorias()
     {
-        
+        return BD.ObtenerCategorias();
     }
 
     public static List<string> ObtenerDificultades()
     {
-       
+       return BD.ObtenerDificultades();
     }
 
     public static void CargarPartida(string username, int dificultad, int categoria)
     {
-        ObtenerPreguntas(dificultad, categoria);
-        ObtenerRespuestas();
+        _preguntas = BD.ObtenerPreguntas(dificultad, categoria);
+        _respuestas = BD.ObtenerRespuestas(_preguntas);
     }
 
     private static void ObtenerPreguntas(int dificultad, int categoria)
@@ -44,29 +44,18 @@ public static class Juego
         
     }
 
-    public static Pregunta ObtenerProximaPregunta()
+    public static Preguntas ObtenerProximaPregunta()
     {
-        if (_preguntas.Count > 0)
-        {
-            
-        }
-        return null;
+
     }
 
-    public static List<Respuesta> ObtenerProximasRespuestas(int idPregunta)
+    public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta)
     {
         
     }
 
     public static bool VerificarRespuesta(int idPregunta, int idRespuesta)
     {
-        
-        if (respuestaEsCorrecta)
-        {
-            _puntajeActual += 10; 
-            _cantidadPreguntasCorrectas++;
-        }
 
-        return respuestaEsCorrecta;
     }
 }

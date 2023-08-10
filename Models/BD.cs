@@ -22,7 +22,7 @@ public static class BD{
     public static List<Dificultades> ObtenerDificultades(){
         List<Dificultades> listaDificultades = null;
         using(SqlConnection BD = new SqlConnection(_connectionString)){
-            string sql "";
+            string sql = "";
             listaDificultades = BD.Query<Dificultades>(sql).ToList();
         }
         return listaDificultades;
@@ -47,5 +47,18 @@ public static class BD{
             }
 
             return BD.Query<Preguntas>(sql, parametros).ToList();  
-    }   }
+        }
+    }   
+
+    public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas){
+        List<Respuestas> respuestas = new List<Respuestas>();
+
+        using(SqlConnection BD = new SqlConnection(_connectionString)){
+            foreach (Preguntas pregunta in preguntas)
+            {
+                string sql = "SELECT * Respuestas WHERE IdPregunta = @pregunta.IdPregunta"
+                respuestas = db.Query<Respuestas>(sql, new {IdPregunta = @pregunta.IdPregunta})
+            }
+        }
+    }
 }
