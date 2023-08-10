@@ -36,7 +36,7 @@ public static class Juego
 
     public static Preguntas ObtenerProximaPregunta()
     {
-
+        
     }
 
     public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta)
@@ -47,5 +47,12 @@ public static class Juego
     public static bool VerificarRespuesta(int idPregunta, int idRespuesta)
     {
 
+    }
+    public static int GenerarEnteroRandom(int desde, int hasta)
+    {
+        int num;
+        Random r = new Random();
+        num = r.Next(desde, hasta + 1);
+        return num;
     }
 }
