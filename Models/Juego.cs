@@ -54,7 +54,15 @@ public static class Juego
 
     public static bool VerificarRespuesta(int IdPregunta, int IdRespuesta)
     {
-        
+        int i = 0;
+        bool seEncontro = false;
+        bool esCorrecta = false;
+        while(i < _respuestas.Count() && !seEncontro){
+            if(_respuestas[i].Correcta){
+                _puntajeActual += 10;
+                _cantidadPreguntasCorrectas += 1;
+            } 
+        } 
     }
     public static int GenerarEnteroRandom(int desde, int hasta)
     {
