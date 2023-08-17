@@ -38,7 +38,7 @@ public static class Juego
     public static Preguntas ObtenerProximaPregunta()
     {
         if(_preguntas.Count > 0){
-            return _preguntas[GenerarEnteroRandom(0, _preguntas.Count())];
+            return _preguntas[0];
         }
         else
         {
@@ -61,14 +61,10 @@ public static class Juego
             if(_respuestas[i].Correcta){
                 _puntajeActual += 10;
                 _cantidadPreguntasCorrectas += 1;
+                _preguntas.RemoveAt(0);
+                esCorrecta = true;
             } 
         } 
-    }
-    public static int GenerarEnteroRandom(int desde, int hasta)
-    {
-        int num;
-        Random r = new Random();
-        num = r.Next(desde, hasta + 1);
-        return num;
+        return esCorrecta;
     }
 }
