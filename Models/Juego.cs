@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TP07_CZERNUSZKA_KOZIUPA.Models;
 
@@ -36,17 +37,24 @@ public static class Juego
 
     public static Preguntas ObtenerProximaPregunta()
     {
-        
+        if(_preguntas.Count > 0){
+            return _preguntas[GenerarEnteroRandom(0, _preguntas.Count())];
+        }
+        else
+        {
+            return null;
+        }
     }
 
-    public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta)
+    public static List<Respuestas> ObtenerProximasRespuestas(int IdPregunta)
     {
-        
+        List<Respuestas> lista = _respuestas.Where(r => r.IdPregunta == IdPregunta).ToList();
+        return lista;
     }
 
-    public static bool VerificarRespuesta(int idPregunta, int idRespuesta)
+    public static bool VerificarRespuesta(int IdPregunta, int IdRespuesta)
     {
-
+        
     }
     public static int GenerarEnteroRandom(int desde, int hasta)
     {
