@@ -19,4 +19,14 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #28BBA9;
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.custom-btn{
+  background-color: #906DF3;
+  color: black;
 }

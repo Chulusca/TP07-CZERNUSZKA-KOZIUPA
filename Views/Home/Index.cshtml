@@ -2,7 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <img src="img/logo.png" alt="Imagen Centrada" class="img-fluid" style="margin-top:40px;">
+                <div class="btn-container">
+                    <a href='@Url.Action("ConfigurarJuego","Home")' class="btn custom-btn";">Configurar Juego</a>
+                </div>
+        </div>
+    </div>
 </div>
+
