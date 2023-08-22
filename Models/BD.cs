@@ -12,7 +12,7 @@ public static class BD{
 
     public static List<Categorias> ObtenerCategorias(){
         List<Categorias> listaCategorias = null;
-        using(SqlConnection BD = new SqlConnectionQ(_connectionString)){
+        using(SqlConnection BD = new SqlConnection(_connectionString)){
             string sql = "SELECT * FROM Categorias";
             listaCategorias = BD.Query<Categorias>(sql).ToList();
         }
@@ -56,9 +56,10 @@ public static class BD{
         using(SqlConnection BD = new SqlConnection(_connectionString)){
             foreach (Preguntas pregunta in preguntas)
             {
-                string sql = "SELECT * Respuestas WHERE IdPregunta = @pregunta.IdPregunta"
-                respuestas = db.Query<Respuestas>(sql, new {IdPregunta = @pregunta.IdPregunta})
+                string sql = "SELECT * Respuestas WHERE IdPregunta = @pregunta.IdPregunta";
+                respuestas = BD.Query<Respuestas>(sql, new {IdPregunta = @pregunta.IdPregunta}).ToList();
             }
         }
+        return respuestas;
     }
 }

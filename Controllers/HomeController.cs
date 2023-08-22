@@ -27,17 +27,16 @@ public class HomeController : Controller
     public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
         Juego.CargarPartida(username, dificultad, categoria);
-        if(_preguntas.Count() > 0) return RedirectToAction("Jugar");
+        Preguntas _pregunta = Juego.ObtenerProximaPregunta();
+        if(_pregunta == null) return RedirectToAction("Juego");
         else return RedirectToAction("ConfigurarJuego");
     }
     public IActionResult Jugar()
     {
-        ViewBag.pregunta = Juego.ObtenerProximaPregunta();
-        if(Juego.ObtenerProximaPregunta == null){
+        if(Juego.ObtenerProximaPregunta() == null){
             return View("Fin");
         }
         else{
-            ViewBag.respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
             return View("Juego");
         }
     }

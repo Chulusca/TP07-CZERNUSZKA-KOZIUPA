@@ -19,12 +19,12 @@ public static class Juego
         _cantidadPreguntasCorrectas = 0;
     }
 
-    public static List<string> ObtenerCategorias()
+    public static List<Categorias> ObtenerCategorias()
     {
         return BD.ObtenerCategorias();
     }
 
-    public static List<string> ObtenerDificultades()
+    public static List<Dificultades> ObtenerDificultades()
     {
        return BD.ObtenerDificultades();
     }
