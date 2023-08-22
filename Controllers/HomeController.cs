@@ -33,12 +33,19 @@ public class HomeController : Controller
     public IActionResult Jugar()
     {
         ViewBag.pregunta = Juego.ObtenerProximaPregunta();
-        ViewBag.respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
-        return View("Juego");
+        if(Juego.ObtenerProximaPregunta == null){
+            return View("Fin");
+        }
+        else{
+            ViewBag.respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+            return View("Juego");
+        }
     }
     [HttpPost] public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
     {
-
+        ViewBag.esCorrecta = Juego.VerificarRespuesta(idPregunta, idRespuesta);
+        ViewBag.Respuestas = Juego.ObtenerProximasRespuestas(idPregunta);
+        return View("Respuesta");
     }
     public IActionResult Privacy()
     {
