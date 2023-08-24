@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+  font-size: 32px;
 }
 
 @media (min-width: 768px) {
@@ -20,6 +20,7 @@ html {
 body {
   margin-bottom: 60px;
   background-color: #28BBA9;
+  font-family: monospace;
 }
 .btn-container {
   display: flex;
@@ -28,5 +29,10 @@ body {
 }
 .custom-btn{
   background-color: #906DF3;
-  color: black;
+  color: white;
+}
+.btn-container-dificultades{
+  display: flex;
+  flex-wrap: wrap !important;
+  align-content: space-between;
 }
