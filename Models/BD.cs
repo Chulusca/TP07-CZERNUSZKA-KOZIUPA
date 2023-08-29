@@ -56,8 +56,9 @@ public static class BD{
         using(SqlConnection BD = new SqlConnection(_connectionString)){
             foreach (Preguntas pregunta in preguntas)
             {
-                string sql = "SELECT * Respuestas WHERE IdPregunta = @pregunta.IdPregunta";
-                respuestas = BD.Query<Respuestas>(sql, new {IdPregunta = @pregunta.IdPregunta}).ToList();
+                string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @IdPregunta";
+                int preg = pregunta.IdPregunta;
+                respuestas.AddRange(BD.Query<Respuestas>(sql, new{IdPregunta = preg}).ToList());
             }
         }
         return respuestas;

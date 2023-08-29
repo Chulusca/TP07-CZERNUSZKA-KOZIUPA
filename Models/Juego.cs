@@ -67,4 +67,10 @@ public static class Juego
         } 
         return esCorrecta;
     }
+    public static string ObtenerUsername(){
+        return _username;
+    }
+    public static int ObtenerPuntaje(){
+        return _puntajeActual;
+    }
 }

@@ -1,17 +1,37 @@
-<form>
+<form action = '@Url.Action("Comenzar")' method = "GET">
     <div class = "m-0 row justify-content-center align-items-center">
         <div class="mb-3 mt-3">
             <label for="username" class="form-label row justify-content-center">Username</label>
             <input type="text" class="form-control" id="username" placeholder="Ingresar el nombre de usuario" name="username">
         </div>
-        <div class="btn-container-dificultades">
-            <button class="btn btn-dark">Cualquiera</button>
-            <button class="btn btn-dark">Facil</button>
-            <button class="btn btn-dark">Media</button>
-            <button class="btn btn-dark">Dificil</button>
+        <div>
+        <input type="radio" id="facil" name="dificultad" value="3">
+        <label for="facil">facil</label><br>
+        <input type="radio" id="medio" name="dificultad" value="2">
+        <label for="medio">medio</label><br>
+        <input type="radio" id="dificil" name="dificultad" value="1">
+        <label for="dificil">dificil</label>
         </div>
-    </div>
-    
+        <div>
+        <input type="radio" id="Ciencia" name="categoria" value="1">
+        <label for="Ciencia">Ciencia</label><br>
+        <input type="radio" id="Deportes" name="categoria" value="2">
+        <label for="Deportes">Deportes</label><br>
+        <input type="radio" id="Arte" name="categoria" value="3">
+        <label for="Arte">Arte</label>
+        <input type="radio" id="Historia" name="categoria" value="4">
+        <label for="Historia">Historia</label>
+        <input type="radio" id="Geografia" name="categoria" value="5">
+        <label for="Geografia">Geografia</label>
+
+        <button type="submit"></button>
+        </div>
 </form>
 
 
+ <!-- <div class="btn-container-dificultades">
+    <div class="">Cualquiera</div>
+    <div class="">Facil</div>
+    <div class="">Media</div>
+    <div class="">Dificil</div>
+</div> -->

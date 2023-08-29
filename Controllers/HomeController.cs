@@ -28,16 +28,20 @@ public class HomeController : Controller
     {
         Juego.CargarPartida(username, dificultad, categoria);
         Preguntas _pregunta = Juego.ObtenerProximaPregunta();
-        if(_pregunta == null) return RedirectToAction("Juego");
+        if(_pregunta != null) return RedirectToAction("Jugar");
         else return RedirectToAction("ConfigurarJuego");
     }
     public IActionResult Jugar()
     {
+        ViewBag.pregunta = Juego.ObtenerProximaPregunta();
+        ViewBag.respuestas = Juego.ObtenerProximasRespuestas(Juego.ObtenerProximaPregunta().IdPregunta);
+        ViewBag.user = Juego.ObtenerUsername();
+        ViewBag.puntaje = Juego.ObtenerPuntaje();
         if(Juego.ObtenerProximaPregunta() == null){
             return View("Fin");
         }
         else{
-            return View("Juego");
+            return View("Jugar");
         }
     }
     [HttpPost] public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
