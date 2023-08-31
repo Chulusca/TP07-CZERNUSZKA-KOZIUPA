@@ -9,6 +9,7 @@ public static class Juego
     private static string _username;
     private static int _puntajeActual;
     private static int _cantidadPreguntasCorrectas;
+    private static int _cantidadPreguntas = 1;
     private static List<Preguntas> _preguntas;
     private static List<Respuestas> _respuestas;
 
@@ -55,9 +56,8 @@ public static class Juego
     public static bool VerificarRespuesta(int IdPregunta, int IdRespuesta)
     {
         int i = 0;
-        bool seEncontro = false;
         bool esCorrecta = false;
-        while(i < _respuestas.Count() && !seEncontro){
+        while(i < _respuestas.Count() && !esCorrecta){
             if(_respuestas[i].Correcta){
                 _puntajeActual += 10;
                 _cantidadPreguntasCorrectas += 1;
@@ -65,6 +65,7 @@ public static class Juego
                 esCorrecta = true;
             } 
         } 
+        _cantidadPreguntas ++;
         return esCorrecta;
     }
     public static string ObtenerUsername(){
@@ -73,4 +74,5 @@ public static class Juego
     public static int ObtenerPuntaje(){
         return _puntajeActual;
     }
+    public static int ObtenerPreguntasRespondidas(){return _cantidadPreguntas;}
 }

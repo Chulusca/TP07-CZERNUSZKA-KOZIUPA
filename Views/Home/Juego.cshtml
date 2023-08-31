@@ -1,0 +1,31 @@
+<div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <h2>@ViewBag.user</h2>
+                <h1>@ViewBag.puntaje</h1>
+                <img src="/img/acertijo.gif" alt="Imagen" class="rounded img-fluid" style="max-width: 80%;">
+                <h2 class="mt-4">@ViewBag._preguntasRespondidas @ViewBag.pregunta.Enunciado</h2>
+                <form id="miFormulario" action = '@Url.Action("VerificarRespuesta")' method = "post">
+                    <input type="hidden" name="IdPregunta" value="@ViewBag.pregunta.IdPregunta">
+                    <table style="width: 100%;">
+                        @{
+                            <tr>
+                            @for (int i = 0; i < 2; i++)
+                            {
+                                <td><button type="submit" class="btn mt-3 ampliar-boton" style = "background-color: #906DF3;" name="IdRespuesta" value="@ViewBag.respuestas[i].IdRespuesta">@ViewBag.respuestas[i].Contenido</button></td>
+                            }
+                            </tr>
+                            <tr>
+                            @for (int i = 2; i < ViewBag.respuestas.Count; i++)
+                            {
+                                <td><button type="submit" class="btn mt-3 ampliar-boton" style = "background-color: #906DF3;" name="IdRespuesta" value="@ViewBag.respuestas[i].IdRespuesta">@ViewBag.respuestas[i].Contenido</button></td>
+                            }
+                            </tr>
+                        }
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

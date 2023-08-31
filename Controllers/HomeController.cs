@@ -37,11 +37,12 @@ public class HomeController : Controller
         ViewBag.respuestas = Juego.ObtenerProximasRespuestas(Juego.ObtenerProximaPregunta().IdPregunta);
         ViewBag.user = Juego.ObtenerUsername();
         ViewBag.puntaje = Juego.ObtenerPuntaje();
+        ViewBag._preguntasRespondidas = Juego.ObtenerPreguntasRespondidas();
         if(Juego.ObtenerProximaPregunta() == null){
             return View("Fin");
         }
         else{
-            return View("Jugar");
+            return View("Juego");
         }
     }
     [HttpPost] public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)

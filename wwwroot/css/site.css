@@ -36,3 +36,16 @@ body {
   flex-wrap: wrap !important;
   align-content: space-between;
 }
+.centrar-en-pantalla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.centrar-boton {
+  display: flex;
+  justify-content: center;
+}
+.ampliar-boton {
+  width: 100%;
+}

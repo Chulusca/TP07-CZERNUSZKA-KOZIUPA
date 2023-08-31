@@ -1,37 +1,41 @@
-<form action = '@Url.Action("Comenzar")' method = "GET">
-    <div class = "m-0 row justify-content-center align-items-center">
-        <div class="mb-3 mt-3">
-            <label for="username" class="form-label row justify-content-center">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Ingresar el nombre de usuario" name="username">
+<div class="centrar-en-pantalla">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <img src="/img/logo.png" class="img-fluid">
+                <form id="miFormulario" action = '@Url.Action("Comenzar")' method = "GET">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dificultad" class="form-label">Dificultad</label>
+                        <select class="form-select" id="dificultad" name="dificultad" required>
+                            <option value="3">Fácil</option>
+                            <option value="2">Media</option>
+                            <option value="1">Difícil</option>
+                            <option value="-1">Cualquiera</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoría</label>
+                        <select class="form-select" id="categoria" name="categoria" required>
+                            <option value="3">Arte</option>
+                            <option value="5">Geografía</option>
+                            <option value="4">Historia</option>
+                            <option value="2">Deporte</option>
+                            <option value="1">Ciencia</option>
+                            <option value="-1">Cualquiera</option>
+                        </select>
+                    </div>
+                    <div class="centrar-boton">
+                        <button type="submit" class ="btn custom-btn" style="background-color: #906DF3; color: white;">Jugar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div>
-        <input type="radio" id="facil" name="dificultad" value="3">
-        <label for="facil">facil</label><br>
-        <input type="radio" id="medio" name="dificultad" value="2">
-        <label for="medio">medio</label><br>
-        <input type="radio" id="dificil" name="dificultad" value="1">
-        <label for="dificil">dificil</label>
-        </div>
-        <div>
-        <input type="radio" id="Ciencia" name="categoria" value="1">
-        <label for="Ciencia">Ciencia</label><br>
-        <input type="radio" id="Deportes" name="categoria" value="2">
-        <label for="Deportes">Deportes</label><br>
-        <input type="radio" id="Arte" name="categoria" value="3">
-        <label for="Arte">Arte</label>
-        <input type="radio" id="Historia" name="categoria" value="4">
-        <label for="Historia">Historia</label>
-        <input type="radio" id="Geografia" name="categoria" value="5">
-        <label for="Geografia">Geografia</label>
-
-        <button type="submit"></button>
-        </div>
-</form>
+    </div>
+</div>
 
 
- <!-- <div class="btn-container-dificultades">
-    <div class="">Cualquiera</div>
-    <div class="">Facil</div>
-    <div class="">Media</div>
-    <div class="">Dificil</div>
-</div> -->
+
