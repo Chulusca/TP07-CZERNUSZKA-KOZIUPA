@@ -13,13 +13,13 @@
                             <tr>
                             @for (int i = 0; i < 2; i++)
                             {
-                                <td><button type="submit" class="btn mt-3 ampliar-boton" style = "background-color: #906DF3;" name="IdRespuesta" value="@ViewBag.respuestas[i].IdRespuesta">@ViewBag.respuestas[i].Contenido</button></td>
+                                <td><button type="submit" class="btn mt-3 ampliar-boton" style = "background-color: #906DF3;" name="idRespuesta" value="@ViewBag.respuestas[i].IdRespuesta">@ViewBag.respuestas[i].Contenido</button></td>
                             }
                             </tr>
                             <tr>
                             @for (int i = 2; i < ViewBag.respuestas.Count; i++)
                             {
-                                <td><button type="submit" class="btn mt-3 ampliar-boton" style = "background-color: #906DF3;" name="IdRespuesta" value="@ViewBag.respuestas[i].IdRespuesta">@ViewBag.respuestas[i].Contenido</button></td>
+                                <td><button type="submit" class="btn mt-3 ampliar-boton" style = "background-color: #906DF3;" name="idRespuesta" value="@ViewBag.respuestas[i].IdRespuesta">@ViewBag.respuestas[i].Contenido</button></td>
                             }
                             </tr>
                         }

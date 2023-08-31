@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    @{
+        if(@ViewBag.esCorrecta){
+            <div class="alert alert-success text-center" role="alert">
+                <h4 class="alert-heading" style="color: black">¡Respuesta Correcta!</h4>
+                <img src="img/gifCorrecto.gif" alt="gif" class="img-fluid mt-3" style="max-width: 100%;">
+                <p style="color: black">Tu respuesta es correcta, muy bien!</p>
+            </div>
+        }
+        else{
+            <div class="alert alert-danger text-center" role="alert">
+                <h4 class="alert-heading" style="color: black">¡Respuesta Incorrecta!</h4>
+                <img src="img/gifIncorrecto.gif" alt="gif" class="img-fluid mt-3" style="max-width: 100%;">
+            @foreach (var item in @ViewBag.Respuestas)
+                {
+                    if(item.Correcta){
+                        <p style="color: black">La respuesta correcta es: @item.Contenido Suerte para la proxima!</p>
+                    }
+                }   
+            </div>
+        }
+    }
+    <div class="text-center">
+        <a href="fin.html" class ="btn custom-btn" style="background-color: #906DF3; color: white;">Fin de Juego</a>
+    </div>
+</div>
