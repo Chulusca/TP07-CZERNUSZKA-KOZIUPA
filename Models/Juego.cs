@@ -9,12 +9,13 @@ public static class Juego
     private static string _username;
     private static int _puntajeActual;
     private static int _cantidadPreguntasCorrectas;
-    private static int _cantidadPreguntas = 1;
+    private static int _cantidadPreguntas;
     private static List<Preguntas> _preguntas;
     private static List<Respuestas> _respuestas;
 
     public static void InicializarJuego()
     {
+        _cantidadPreguntas = 1;
         _username = "";
         _puntajeActual = 0;
         _cantidadPreguntasCorrectas = 0;
@@ -27,7 +28,7 @@ public static class Juego
 
     public static List<Dificultades> ObtenerDificultades()
     {
-       return BD.ObtenerDificultades();
+    return BD.ObtenerDificultades();
     }
 
     public static void CargarPartida(string username, int dificultad, int categoria)
@@ -58,15 +59,19 @@ public static class Juego
     {
         int i = 0;
         bool esCorrecta = false;
+
         while(i < _respuestas.Count() && !esCorrecta){
-            if(_respuestas[i].Correcta){
-                _puntajeActual += 10;
+            if(_respuestas[i].IdRespuesta == IdRespuesta){
+                if(_respuestas[i].Correcta){
+                _puntajeActual += 1507;
                 _cantidadPreguntasCorrectas += 1;
-                _preguntas.RemoveAt(0);
                 esCorrecta = true;
-            } 
+                } 
+            }
+            i ++;
         } 
         _cantidadPreguntas ++;
+        _preguntas.RemoveAt(0);
         return esCorrecta;
     }
     public static string ObtenerUsername(){
